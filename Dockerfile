@@ -2,8 +2,8 @@ FROM python:3.10-slim
 
 ENV DEBIAN_FRONTEND=noninteractive
 
-RUN apt-get update && apt-get install -y \
-    git ffmpeg \
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    git ffmpeg libgomp1 \
     && rm -rf /var/lib/apt/lists/*
 
 RUN pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118
